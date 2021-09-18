@@ -67,7 +67,29 @@ public final class Main {
         try {
           input = input.trim();
           String[] arguments = input.split(" ");
-          System.out.println(arguments[0]);
+//          System.out.println(arguments[0]);
+          if (arguments[0].equals("add")) {
+            MathBot mathbot= new MathBot();
+            double result = mathbot.add(Double.valueOf(arguments[1]), Double.valueOf(arguments[2]));
+            System.out.println(result);
+          }
+          else if (arguments[0].equals("subtract")) {
+            MathBot mathbot= new MathBot();
+            double result = mathbot.subtract(Double.valueOf(arguments[1]),Double.valueOf(arguments[2]));
+            System.out.println(result);
+          }
+          else if  (arguments[0].equals("stars")) {
+            FileReader fr=new FileReader(arguments[1]);
+            BufferedReader br=new BufferedReader(fr);
+
+            String line = null;
+            while ((line = br.readLine()) != null) {
+              System.out.println(line);
+            }
+            br.close();
+            fr.close();
+          }
+
           // TODO: complete your REPL by adding commands for addition "add" and subtraction
           //  "subtract"
         } catch (Exception e) {
